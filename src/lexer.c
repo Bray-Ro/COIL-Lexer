@@ -108,7 +108,7 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 
 			/*Get type and other data of current token*/
 			while (a <= TOKENS_LENGTH) {
-				/*Is current character a Seperator or an operator?*/	
+				/*Is current character a Seperator or an operator?*/
 				if (TOKENS[a].TYPE == _SEPARATOR || TOKENS[a].TYPE == _SCOPE || TOKENS[a].TYPE == _PUNCTUATOR) {
 					if (TOKENS[a].LEXEME[0] == CURRENT_CHAR) {
 						
@@ -136,7 +136,7 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 
 						}
 					
-						/*Do we add a token to the program?*/			
+						/*Do we add a token to the program?*/
 						if (ADD_TOKEN == TRUE) {
 							_TOKEN TOKEN_STRUCTURE;
                        		                        strcpy(TOKEN_STRUCTURE.LEXEME, tok_str);
@@ -272,3 +272,4 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 void printd() {
 	printf("hello");
 }
+

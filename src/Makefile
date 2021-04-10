@@ -5,7 +5,8 @@
 
 generate:
 	
-	gcc lexer.c -install_name -fPIC -shared -WL -o lexer.so
+	gcc lexer.c -g -Wall -install_name -fPIC -shared -WL -o lexer.so
+
 
 
 

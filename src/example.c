@@ -12,6 +12,7 @@ Compile as normal C program (clang example.c -o example)
 #define _SEMICOLON      ";"
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "lexer.h"
 

@@ -4,9 +4,10 @@
 
 
 generate:
+	gcc lexer.c -g -Wall -install_name -fPIC -shared -WL -o liblexer.so
+	gcc -c -g lexer.c 
 	
-	gcc lexer.c -g -Wall -install_name -fPIC -shared -WL -o lexer.so
-
+	
 
 
 

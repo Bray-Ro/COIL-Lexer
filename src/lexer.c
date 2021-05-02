@@ -1,24 +1,5 @@
-// Types of tokens
-#define _KEYWORD 		1
-#define _OPERATOR 		2
-#define _SEPARATOR 		3
-#define _LITERAL 		4
-#define _IDENTIFIER		5
-#define _COMMENT		6
-#define _PUNCTUATOR		7
-#define _SCOPE			8
-// Define states of lexer
-#define _SEARCHING		10
-#define _SEARCHING_FOR_LITERAL	20
-#define _PUNCTUATOR_STATE	30
-// Define Booleans
-#define TRUE			1
-#define FALSE			0
-
-
-
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 

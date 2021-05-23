@@ -51,5 +51,7 @@ int main(int argc, char* argv[255]) {
       . How many tokens are there?
   */
         commander_lexer(program, SYNTAX, 3);
+	
+	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nes:%s\n", lexed_program.STATEMENTS[0].TOKENS[0].LEXEME);
         return 0;
 }

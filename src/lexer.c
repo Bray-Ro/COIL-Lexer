@@ -34,13 +34,13 @@ char CURRENT_LEXER_STATE = _SEARCHING;
 
 int SKIP_CHAR = FALSE;
 
-/*Lexed program*/
-static _PROGRAM lexed_program;
 
 
 
 /*Define array of Keywords*/
 void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
+
+
 
 	{
 		/*What is the current token being lexed?*/
@@ -52,7 +52,7 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 		int i = 0; 
 
 		/*How many statements have been lexed so far*/
-			int STATEMENTS_PTR = 1;
+		int STATEMENTS_PTR = 1;
 
 		/*How many tokens are in the current statement so far?*/
 		int TOKENS_PTR = 0;
@@ -88,14 +88,14 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 								STATEMENTS_PTR++;
 							} else if (TOKENS[a].TYPE == _SCOPE) {
 												
-															ADD_TOKEN = TRUE;
+								ADD_TOKEN = TRUE;
 								
 								tok_str[0] = CURRENT_CHAR;
 								
 
 
 
-															CURRENT_LEXER_STATE = _PUNCTUATOR_STATE;
+								CURRENT_LEXER_STATE = _PUNCTUATOR_STATE;
 														
 
 							}
@@ -103,9 +103,9 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 							/*Do we add a token to the program?*/			
 							if (ADD_TOKEN == TRUE) {
 								_TOKEN TOKEN_STRUCTURE;
-														strcpy(TOKEN_STRUCTURE.LEXEME, tok_str);
-														TOKEN_STRUCTURE.TYPE = _SEPARATOR;
-														TOKEN_STRUCTURE.ID = TOKENS[a].ID;
+								strcpy(TOKEN_STRUCTURE.LEXEME, tok_str);
+								TOKEN_STRUCTURE.TYPE = _SEPARATOR;
+								TOKEN_STRUCTURE.ID = TOKENS[a].ID;
 								char TYPE_STR[255];
 
 								switch(TOKEN_STRUCTURE.TYPE) {
@@ -115,10 +115,11 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 										break; 
 
 								}
-														printf("%s:%s, ", TYPE_STR, TOKEN_STRUCTURE.LEXEME);
-															lexed_program.STATEMENTS[STATEMENTS_PTR].TOKENS[TOKENS_PTR] = TOKEN_STRUCTURE;
-															strcpy(CURRENT_TOKEN, "");
-									
+								
+								printf("%s:%s, ", TYPE_STR, TOKEN_STRUCTURE.LEXEME);
+								lexed_program.STATEMENTS[STATEMENTS_PTR].TOKENS[TOKENS_PTR] = TOKEN_STRUCTURE;
+								strcpy(CURRENT_TOKEN, "");
+								
 								
 							}
 							
@@ -138,17 +139,17 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 
 					_TOKEN TOKEN_STRUCTURE;
 				
-								/*If the lexer has encountered a separator then add the current token to the program*/
+					/*If the lexer has encountered a separator then add the current token to the program*/
 
 
 
 					
 					/*Keyword*/
-								if (strcmp(TOKENS[a].LEXEME, CURRENT_TOKEN) == 0 && strcmp(CURRENT_TOKEN, "") != 0) {
+					if (strcmp(TOKENS[a].LEXEME, CURRENT_TOKEN) == 0 && strcmp(CURRENT_TOKEN, "") != 0) {
 
-										TOKEN_STRUCTURE = TOKENS[a];
+						TOKEN_STRUCTURE = TOKENS[a];
 						ADD_TOKEN = TRUE;
-								} 
+					} 
 					/*Integer literal*/
 					else if (isdigit(CURRENT_CHAR) == 1 && strcmp(CURRENT_TOKEN, "") != 0) {
 										
@@ -167,34 +168,34 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 										TOKEN_STRUCTURE.ID = -2;
 									
 										ADD_TOKEN = TRUE;
-								}
+					 }
 
 
 					/*Do we add a token to the program?*/
-									if (ADD_TOKEN == TRUE) {
+					if (ADD_TOKEN == TRUE) {
 										
 										
 										
-											char TYPE_STR[255];
+						char TYPE_STR[255];
 
-											switch(TOKEN_STRUCTURE.TYPE) {
+						switch(TOKEN_STRUCTURE.TYPE) {
 
-												case _KEYWORD:
-														strcpy(TYPE_STR, "KEYWORD");
-															break;
+							case _KEYWORD:
+								strcpy(TYPE_STR, "KEYWORD");
+								break;
 							case _LITERAL:
-															strcpy(TYPE_STR, "LITERAL");
-															break;
+								strcpy(TYPE_STR, "LITERAL");
+								break;
 							case _IDENTIFIER:
-															strcpy(TYPE_STR, "IDENTIFIER");
-															break;
-											}
-											printf("%s:%s, ", TYPE_STR, TOKEN_STRUCTURE.LEXEME);
-											lexed_program.STATEMENTS[STATEMENTS_PTR].TOKENS[TOKENS_PTR] = TOKEN_STRUCTURE;
-											strcpy(CURRENT_TOKEN, "");
+								strcpy(TYPE_STR, "IDENTIFIER");
+								break;
+							}
+							printf("%s:%s, ", TYPE_STR, TOKEN_STRUCTURE.LEXEME);
+							lexed_program.STATEMENTS[STATEMENTS_PTR].TOKENS[TOKENS_PTR] = TOKEN_STRUCTURE;
+							strcpy(CURRENT_TOKEN, "");
 
 
-									}
+						}
 
 
 					a++;
@@ -206,7 +207,7 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 			switch (CURRENT_LEXER_STATE) {
 				case _PUNCTUATOR_STATE:
 					printf("]\n");
-									printf("[");
+					printf("[");
 					STATEMENTS_PTR++;
 					CURRENT_LEXER_STATE = _SEARCHING;
 					break;
@@ -228,8 +229,8 @@ void commander_lexer(char *program, _TOKEN TOKENS[2550], int TOKENS_LENGTH) {
 	
 	
 	
-
-
+	printf("\n\n\nend\n\n");
+	//return lexed_program;
 }
 
 void printd() {

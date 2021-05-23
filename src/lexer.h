@@ -40,7 +40,11 @@ typedef struct _PROGRAM {
 
 
 /*Syntax for lexer is stored here*/
-_TOKEN TOKENS[2550]; 
+_TOKEN TOKENS[2550];
+ 
+
+/*Lexed program*/
+_PROGRAM lexed_program;
 
 
 void commander_lexer();
